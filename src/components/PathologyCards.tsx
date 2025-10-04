@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Heart, Activity, Health, HeartCircle, Eye, Hospital } from "iconsax-react";
 import { motion } from "framer-motion";
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const pathologies = [
   {
@@ -55,8 +56,26 @@ const pathologies = [
 
 const PathologyCards = () => {
   return (
-    <section className="py-20 px-4 bg-muted/30">
-      <div className="container mx-auto">
+    <section className="py-20 px-4 relative overflow-hidden" style={{ background: 'var(--gradient-subtle)' }}>
+      {/* Floating Lottie Decorations */}
+      <div className="absolute top-10 right-20 w-32 h-32 opacity-20 pointer-events-none animate-float">
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/embed/d8e9f0a1-2b3c-4d5e-6f7a-8b9c0d1e2f3g/TuVwXyZaBc.json"
+          style={{ height: '100%', width: '100%' }}
+        />
+      </div>
+      <div className="absolute bottom-20 left-10 w-40 h-40 opacity-20 pointer-events-none animate-float" style={{ animationDelay: '1.5s' }}>
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/embed/e9f0a1b2-3c4d-5e6f-7a8b-9c0d1e2f3g4h/WxYzAbCdEf.json"
+          style={{ height: '100%', width: '100%' }}
+        />
+      </div>
+      
+      <div className="container mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             Medical <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Specialties</span>
@@ -78,25 +97,30 @@ const PathologyCards = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card 
-                  className={`group p-6 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 ${pathology.borderColor} hover:scale-105`}
+                  className={`group p-6 hover:shadow-2xl transition-all duration-500 cursor-pointer border-2 ${pathology.borderColor} hover:border-primary/50 hover:scale-105 bg-gradient-to-br from-card to-accent/5 relative overflow-hidden`}
                 >
-                  <div className={`w-14 h-14 rounded-2xl ${pathology.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon size={28} variant="Bulk" className={`bg-gradient-to-br ${pathology.color} bg-clip-text`} style={{ color: 'transparent' }} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />
+                  
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 rounded-2xl ${pathology.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+                      <Icon size={32} variant="Bulk" className={`bg-gradient-to-br ${pathology.color} bg-clip-text`} style={{ color: 'transparent' }} />
                   </div>
-                  
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {pathology.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground">
-                    {pathology.description}
-                  </p>
-                  
-                  <div className="mt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more
-                    <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {pathology.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground">
+                      {pathology.description}
+                    </p>
+                    
+                    <div className="mt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                      Learn more
+                      <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
                 </Card>
               </motion.div>

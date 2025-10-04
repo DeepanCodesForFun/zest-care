@@ -7,7 +7,8 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+      <div className="absolute inset-0" style={{ background: 'var(--gradient-vibrant)' }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
       
       {/* Content */}
       <div className="container relative z-10 px-4 py-12 md:py-20">
@@ -72,12 +73,20 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
             </div>
             
-            {/* Floating Lottie Animation */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 animate-float">
+            {/* Floating Lottie Animations */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 animate-float">
               <Player
                 autoplay
                 loop
-                src="https://lottie.host/4f8f8e7d-8e3f-4e7b-9c5f-5e8d9c5f5e8d/5e8d9c5f5e8d.json"
+                src="https://lottie.host/embed/f0d61402-9f64-4ca6-b5c0-9e6d3e7e4c7e/OKLEJhPrmK.json"
+                style={{ height: '100%', width: '100%' }}
+              />
+            </div>
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 animate-float" style={{ animationDelay: '1s' }}>
+              <Player
+                autoplay
+                loop
+                src="https://lottie.host/embed/a0f3b9c4-8e7d-4a5b-9c6d-8e7f6a5b4c3d/ZmJhYjE0ZjE0.json"
                 style={{ height: '100%', width: '100%' }}
               />
             </div>
@@ -86,8 +95,9 @@ const Hero = () => {
       </div>
       
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDuration: '4s' }} />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDuration: '6s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl -z-10" />
     </section>
   );
 };

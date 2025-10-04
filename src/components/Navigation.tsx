@@ -37,9 +37,8 @@ const Navigation = () => {
             </a>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Sign In</Button>
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center">
             <Button variant="hero">Get Started</Button>
           </div>
 
@@ -67,8 +66,7 @@ const Navigation = () => {
             <a href="#" className="block py-2 text-foreground hover:text-primary transition-colors font-medium">
               About
             </a>
-            <div className="pt-4 space-y-2">
-              <Button variant="ghost" className="w-full">Sign In</Button>
+            <div className="pt-4">
               <Button variant="hero" className="w-full">Get Started</Button>
             </div>
           </div>
